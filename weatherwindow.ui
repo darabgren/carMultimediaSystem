@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WeatherWindow</class>
+ <widget class="QMainWindow" name="WeatherWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>900</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>900</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>车载多媒体-天气</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resourse.qrc">
+    <normaloff>:/images/winIcon.jpg</normaloff>:/images/winIcon.jpg</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="layoutDirection">
+    <enum>Qt::LayoutDirection::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#centralwidget{
+	background-color: qlineargradient(
+    spread:pad, 
+    x1:0, y1:0, x2:0, y2:1,  /* 垂直渐变方向 */
+    stop:0 #789ABD,           /* 起始颜色（浅蓝色） */
+    stop:1 #E1B698             /* 结束颜色（深灰色） */
+);
+}
+
+#btn_quit{
+	border-image: url(:/images/quit.png);
+}
+QLabel{
+	color:white;
+	font-family:宋体;
+	font-weight:bold;
+	background:transparent;
+}
+#label_datetime{
+	font-size:20pt;
+	font-weight:bold;
+}
+#label_icon{
+	border-image: url(:/images/weather/yun.png);
+}
+#label_weather{
+	font-size:16pt;
+	font-weight:bold;
+}
+
+#btn_city{
+	color:white;
+	font-family:微软雅黑;
+	background:transparent;
+	font-size:20pt;
+	font-weight:bold;
+}
+#label_tem{
+	font-size:28pt;
+	font-weight:bold;
+}
+#label_date1,#label_tem1,#label_weather1{
+	color:yellow;
+}
+#label_date1,#label_date2,#label_date3,#label_date4,#label_date5,#label_date6,#label_date7{
+	font-weight:bold;
+}
+#label_tem1,#label_tem2,#label_tem3,#label_tem4,#label_tem5,#label_tem6,#label_tem7{
+	font-weight:bold;
+}
+
+#label_icon1,#label_icon2,#label_icon3,#label_icon4,#label_icon5,#label_icon6,#label_icon7{
+	border-image: url(:/images/weather/xue.png);
+}</string>
+   </property>
+   <widget class="QLabel" name="label_date1">
+    <property name="geometry">
+     <rect>
+      <x>38</x>
+      <y>260</y>
+      <width>70</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>17日
+星期四</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_tem1">
+    <property name="geometry">
+     <rect>
+      <x>31</x>
+      <y>310</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>17℃~30℃</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_icon1">
+    <property name="geometry">
+     <rect>
+      <x>42</x>
+      <y>350</y>
+      <width>60</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_weather1">
+    <property name="geometry">
+     <rect>
+      <x>14</x>
+      <y>410</y>
+      <width>110</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>大暴雨转雷阵雨</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_date2">
+    <property name="geometry">
+     <rect>
+      <x>162</x>
+      <y>260</y>
+      <width>70</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>17日
+星期四</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_weather2">
+    <property name="geometry">
+     <rect>
+      <x>139</x>
+      <y>410</y>
+      <width>110</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>大暴雨转雷阵雨</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_icon2">
+    <property name="geometry">
+     <rect>
+      <x>164</x>
+      <y>350</y>
+      <width>60</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_tem2">
+    <property name="geometry">
+     <rect>
+      <x>155</x>
+      <y>310</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>17℃~30℃</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_date3">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>260</y>
+      <width>70</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>17日
+星期四</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_weather3">
+    <property name="geometry">
+     <rect>
+      <x>258</x>
+      <y>410</y>
+      <width>110</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>大暴雨转雷阵雨</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_icon3">
+    <property name="geometry">
+     <rect>
+      <x>284</x>
+      <y>350</y>
+      <width>60</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_tem3">
+    <property name="geometry">
+     <rect>
+      <x>276</x>
+      <y>310</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>17℃~30℃</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_date4">
+    <property name="geometry">
+     <rect>
+      <x>413</x>
+      <y>260</y>
+      <width>70</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>17日
+星期四</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_weather4">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>410</y>
+      <width>110</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>大暴雨转雷阵雨</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_icon4">
+    <property name="geometry">
+     <rect>
+      <x>418</x>
+      <y>350</y>
+      <width>60</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_tem4">
+    <property name="geometry">
+     <rect>
+      <x>408</x>
+      <y>310</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>17℃~30℃</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_date5">
+    <property name="geometry">
+     <rect>
+      <x>534</x>
+      <y>260</y>
+      <width>70</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>17日
+星期四</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_weather5">
+    <property name="geometry">
+     <rect>
+      <x>512</x>
+      <y>410</y>
+      <width>110</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>大暴雨转雷阵雨</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_icon5">
+    <property name="geometry">
+     <rect>
+      <x>538</x>
+      <y>350</y>
+      <width>60</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_tem5">
+    <property name="geometry">
+     <rect>
+      <x>531</x>
+      <y>310</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>17℃~30℃</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_date6">
+    <property name="geometry">
+     <rect>
+      <x>657</x>
+      <y>260</y>
+      <width>70</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>17日
+星期四</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_weather6">
+    <property name="geometry">
+     <rect>
+      <x>636</x>
+      <y>410</y>
+      <width>110</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>大暴雨转雷阵雨</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_icon6">
+    <property name="geometry">
+     <rect>
+      <x>662</x>
+      <y>350</y>
+      <width>60</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_tem6">
+    <property name="geometry">
+     <rect>
+      <x>652</x>
+      <y>310</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>17℃~30℃</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_date7">
+    <property name="geometry">
+     <rect>
+      <x>792</x>
+      <y>260</y>
+      <width>70</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>17日
+星期四</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_weather7">
+    <property name="geometry">
+     <rect>
+      <x>773</x>
+      <y>410</y>
+      <width>110</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>大暴雨转雷阵雨</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_icon7">
+    <property name="geometry">
+     <rect>
+      <x>796</x>
+      <y>350</y>
+      <width>60</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_tem7">
+    <property name="geometry">
+     <rect>
+      <x>787</x>
+      <y>310</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>17℃~30℃</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_icon">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>49</y>
+      <width>101</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_weather">
+    <property name="geometry">
+     <rect>
+      <x>33</x>
+      <y>120</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>大暴雨转雷阵雨</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_tem">
+    <property name="geometry">
+     <rect>
+      <x>254</x>
+      <y>113</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>30.2℃</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_datetime">
+    <property name="geometry">
+     <rect>
+      <x>527</x>
+      <y>56</y>
+      <width>231</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>2025-04-17
+14:36:05 周四</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_city">
+    <property name="geometry">
+     <rect>
+      <x>273</x>
+      <y>40</y>
+      <width>151</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LayoutDirection::RightToLeft</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string>成都</string>
+    </property>
+    <property name="icon">
+     <iconset resource="resourse.qrc">
+      <normaloff>:/images/refresh.png</normaloff>:/images/refresh.png</iconset>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_quit">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>20</y>
+      <width>51</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resourse.qrc"/>
+ </resources>
+ <connections/>
+</ui>

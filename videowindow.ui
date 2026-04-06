@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>VideoWindow</class>
+ <widget class="QMainWindow" name="VideoWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1000</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>车载多媒体-视频</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">#centralwidget{
+	background-color: qlineargradient(
+    spread:pad, 
+    x1:0, y1:0, x2:0, y2:1,  /* 垂直渐变方向 */
+    stop:0 #789ABD,           /* 起始颜色（浅蓝色） */
+    stop:1 #E1B698             /* 结束颜色（深灰色） */
+);
+}
+/* 主容器透明 */
+QTabWidget {
+    background: transparent;
+    border: none;
+}
+/* 标签页面板透明 */
+QTabWidget::pane {
+    border: 0;
+    background: transparent;
+    margin: 0;
+}
+/* 标签栏透明 */
+QTabWidget::tab-bar {
+    background: transparent;
+    left: 5px; /* 调整标签栏位置 */
+}
+/* 单个标签页样式 */
+QTabBar::tab {
+    background: rgba(70, 70, 70, 150); /* 半透明灰色 */
+    color: white;
+    border: 1px solid rgba(100, 100, 100, 100);
+    border-bottom: none;
+    padding: 5px 15px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+/* 选中的标签页 */
+QTabBar::tab:selected {
+    background: rgba(120, 120, 120, 180); /* 更不透明的选中状态 */
+    border-color: rgba(150, 150, 150, 150);
+}
+/* 标签页内容区域 */
+QTabWidget &gt; QStackedWidget {
+    background: transparent;
+}
+/* 确保所有子部件继承透明 */
+QTabWidget QWidget {
+    background: transparent;
+}
+
+/* 透明背景轨道 */
+QSlider::groove:horizontal {
+    background: transparent;
+    height: 4px;  /* 进度条高度 */
+}
+/* 已进度部分颜色（示例橙色） */
+QSlider::sub-page:horizontal {
+    background: rgba(255, 123, 37, 0.5); 
+    border-radius: 2px;
+}
+/* 未进度部分颜色（示例半透明灰） */
+QSlider::add-page:horizontal {
+    background: rgba(200, 200, 200, 50);
+    border-radius: 2px;
+}
+/* 圆形滑块 */
+QSlider::handle:horizontal {
+    background: white;
+    width: 10px;
+    height: 10px;
+    margin: -5px 0;  /* 垂直居中 */
+    border-radius: 6px;
+    border: 1px solid #E0E0E0;  /* 可选描边 */
+}
+/*退出样式*/
+#btn_quit{
+	border-image: url(:/images/music/btn_quit_normal.png);
+}
+#btn_quit:hover{
+	border-image: url(:/images/music/btn_quit_hover.png);
+}
+/*添加文件*/
+#btn_file{
+	border-image: url(:/images/music/btn_file_normal.png);
+}
+#btn_file:hover{
+	border-image: url(:/images/music/btn_file_hover.png);
+}
+/* 上一首 */
+#btn_pre{
+	border-image: url(:/images/music/btn_pre_normal.png);
+}
+#btn_pre:hover{
+	border-image: url(:/images/music/btn_pre_hover.png);
+}
+
+/* 下一首 */
+#btn_next{
+	border-image: url(:/images/music/btn_next_normal.png);
+}
+#btn_next:hover{
+	border-image: url(:/images/music/btn_next_hover.png);
+}
+
+/*声音*/
+#btn_volume{
+	border-image: url(:/images/music/btn_volume.png);
+}
+
+/*播放按钮*/
+QPushButton#btn_play[mode='pause']{
+   border-image: url(:/images/music/btn_pause_normal.png);
+}
+QPushButton#btn_play[mode='pause']:hover{  
+   border-image: url(:/images/music/btn_pause_hover.png);
+}
+
+QPushButton#btn_play[mode='play']{
+   border-image: url(:/images/music/btn_play_normal.png);
+}
+QPushButton#btn_play[mode='play']:hover{
+   border-image: url(:/images/music/btn_play_hover.png);
+}
+
+/*声音图标*/
+QPushButton#btn_volume[mode='unmute']{  
+	border-image: url(:/images/music/btn_volume.png);
+}
+QPushButton#btn_volume[mode='mute']{  
+	border-image: url(:/images/music/btn_mute.png);
+}
+#btn_fullScreen{
+	border-image: url(:/images/music/fullScreen.png);
+}
+</string>
+   </property>
+   <widget class="QPushButton" name="btn_play">
+    <property name="geometry">
+     <rect>
+      <x>473</x>
+      <y>557</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_currentTime">
+    <property name="geometry">
+     <rect>
+      <x>77</x>
+      <y>564</y>
+      <width>50</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>00:00</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QSlider" name="volumeSlider">
+    <property name="geometry">
+     <rect>
+      <x>591</x>
+      <y>560</y>
+      <width>101</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="pageStep">
+     <number>1</number>
+    </property>
+    <property name="value">
+     <number>50</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Orientation::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>17</x>
+      <y>10</y>
+      <width>191</width>
+      <height>501</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LayoutDirection::LeftToRight</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="tabPosition">
+     <enum>QTabWidget::TabPosition::North</enum>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::TabShape::Triangular</enum>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <property name="usesScrollButtons">
+     <bool>true</bool>
+    </property>
+    <property name="documentMode">
+     <bool>false</bool>
+    </property>
+    <property name="tabsClosable">
+     <bool>false</bool>
+    </property>
+    <widget class="QWidget" name="tab_local_2">
+     <attribute name="title">
+      <string>本地列表</string>
+     </attribute>
+     <widget class="QListWidget" name="list_local_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>191</width>
+        <height>471</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_online_2">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <attribute name="title">
+      <string>在线列表</string>
+     </attribute>
+     <widget class="QListWidget" name="list_online_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>191</width>
+        <height>471</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QSlider" name="progressSlider">
+    <property name="geometry">
+     <rect>
+      <x>17</x>
+      <y>522</y>
+      <width>931</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>99</number>
+    </property>
+    <property name="singleStep">
+     <number>0</number>
+    </property>
+    <property name="pageStep">
+     <number>1</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Orientation::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_volume">
+    <property name="geometry">
+     <rect>
+      <x>564</x>
+      <y>559</y>
+      <width>24</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_file">
+    <property name="geometry">
+     <rect>
+      <x>37</x>
+      <y>558</y>
+      <width>26</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_pre">
+    <property name="geometry">
+     <rect>
+      <x>425</x>
+      <y>557</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_totalTime">
+    <property name="geometry">
+     <rect>
+      <x>109</x>
+      <y>564</y>
+      <width>50</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>00:00</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_quit">
+    <property name="geometry">
+     <rect>
+      <x>960</x>
+      <y>20</y>
+      <width>24</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>18</width>
+      <height>18</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_next">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>557</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>219</x>
+      <y>39</y>
+      <width>731</width>
+      <height>471</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout"/>
+   </widget>
+   <widget class="QPushButton" name="btn_fullScreen">
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>558</y>
+      <width>26</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

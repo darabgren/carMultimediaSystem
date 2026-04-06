@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MapWindow</class>
+ <widget class="QMainWindow" name="MapWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1000</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>车载多媒体-地图</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">#centralwidget{
+	background-color: qlineargradient(
+    spread:pad, 
+    x1:0, y1:0, x2:0, y2:1,  /* 垂直渐变方向 */
+    stop:0 #789ABD,           /* 起始颜色（浅蓝色） */
+    stop:1 #E1B698             /* 结束颜色（深灰色） */
+);
+}
+
+#btn_enlarge{
+	border-image: url(:/images/map/btn_enlarge_normal.png);
+}
+#btn_enlarge:hover{
+	border-image: url(:/images/map/btn_enlarge_hover.png);
+}
+
+#btn_reduce{
+	border-image: url(:/images/map/btn_reduce_normal.png);
+}
+#btn_reduce:hover{
+	border-image: url(:/images/map/btn_reduce_hover.png);
+}
+#btn_locate{
+	border-image: url(:/images/map/btn_locate_normal.png);
+}
+#btn_locate:hover{
+	border-image: url(:/images/map/btn_locate_hover.png);
+}
+
+#btn_quit{
+	border-image: url(:/images/map/btn_quit_normal.png);
+}
+#btn_quit:hover{
+	border-image: url(:/images/map/btn_quit_hover.png);
+}
+
+QLineEdit {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #CED4DA;
+    border-radius: 4px;
+    padding: 6px 8px;
+    color: #333333;
+    font-size: 10.5pt;
+    selection-background-color: #20B2AA;
+}
+QLineEdit:focus {
+    border: 1px solid #20B2AA;
+    box-shadow: 0 0 0 2px rgba(32, 178, 170, 0.2);
+}
+QLabel {
+    color: #495057;
+    font-size: 10.5pt;
+}
+#btn_getRoute{
+	background-color:#FCF7F5;
+	color: #495057;
+    font-size: 10.5pt;
+}
+
+</string>
+   </property>
+   <widget class="QLabel" name="label_map">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1000</width>
+      <height>520</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>511</y>
+      <width>1001</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Orientation::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_src">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>557</y>
+      <width>61</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>起点：</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_dst">
+    <property name="geometry">
+     <rect>
+      <x>289</x>
+      <y>557</y>
+      <width>61</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>终点：</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_src">
+    <property name="geometry">
+     <rect>
+      <x>83</x>
+      <y>553</y>
+      <width>190</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::FocusPolicy::ClickFocus</enum>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_dst">
+    <property name="geometry">
+     <rect>
+      <x>339</x>
+      <y>552</y>
+      <width>190</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::FocusPolicy::ClickFocus</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_getRoute">
+    <property name="geometry">
+     <rect>
+      <x>559</x>
+      <y>553</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>获取路线</string>
+    </property>
+    <property name="icon">
+     <iconset resource="resourse.qrc">
+      <normaloff>:/images/map/btn_getRoute.png</normaloff>:/images/map/btn_getRoute.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_enlarge">
+    <property name="geometry">
+     <rect>
+      <x>950</x>
+      <y>370</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_reduce">
+    <property name="geometry">
+     <rect>
+      <x>950</x>
+      <y>420</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_locate">
+    <property name="geometry">
+     <rect>
+      <x>949</x>
+      <y>470</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_quit">
+    <property name="geometry">
+     <rect>
+      <x>950</x>
+      <y>551</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resourse.qrc"/>
+ </resources>
+ <connections/>
+</ui>

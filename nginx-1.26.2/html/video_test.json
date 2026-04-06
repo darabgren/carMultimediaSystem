@@ -1,0 +1,27 @@
+[
+	{
+		"id":1,
+		"name":"狼.mp4",
+		"path":"http://localhost/video/狼.mp4"
+	},{
+		"id":2,
+		"name":"陋室铭.mp4",
+		"path":"http://localhost/video/陋室铭.mp4"
+	},{
+		"id":3,
+		"name":"卖炭翁.mp4",
+		"path":"http://localhost/video/卖炭翁.mp4"
+	},{
+		"id":4,
+		"name":"木兰辞.mp4",
+		"path":"http://localhost/video/木兰辞.mp4"
+	},{
+		"id":5,
+		"name":"桃花源记.mp4",
+		"path":"http://localhost/video/桃花源记.mp4"
+	},{
+		"id":6,
+		"name":"北冥有鱼.mp4",
+		"path":"http://localhost/video/北冥有鱼.mp4"
+	}
+]
