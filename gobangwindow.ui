@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GobangWindow</class>
+ <widget class="QMainWindow" name="GobangWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>820</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>820</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>车载多媒体-五子棋</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">#label_currentTurn{
+	font-size: 25px;                /* 字体大小 */
+    font-weight: bold;              /* 字体加粗 */
+}
+#label_player{
+	font-size:45px;
+	font-weight:bold;
+}
+QPushButton {
+    border: 2px solid #333;          /* 统一边框 */
+    border-radius: 10px;            /* 圆角 */
+    font-size: 16px;                /* 字体大小 */
+    font-weight: bold;              /* 字体加粗 */
+    margin: 8px;                    /* 按钮间距 */
+}
+
+#btn_take_back {
+    background-color: #ffcccc;      /* 悔棋 - 浅红 */
+    qproperty-icon: url(:/images/gobang/btn_take_back.png);
+    icon-size: 24px;                /* 图标大小 */
+}
+
+#btn_request_draw {
+    background-color: #ffffcc;      /* 求和 - 浅黄 */
+    qproperty-icon: url(:/images/gobang/btn_request_draw.png);
+    icon-size: 24px;
+}
+
+#btn_give_up {
+    background-color: #ffcc99;      /* 认输 - 浅橙 */
+    qproperty-icon: url(:/images/gobang/btn_give_up.png);
+    icon-size: 24px;
+}
+
+#btn_restart {
+    background-color: #ccff99;      /* 重新开始 - 浅绿 */
+    qproperty-icon: url(:/images/gobang/btn_restart.png);
+    icon-size: 24px;
+}
+
+#btn_quit {
+	background-color: rgba(255, 111, 97, 0.7);
+    
+    qproperty-icon: url(:/images/gobang/btn_quit.png);
+    icon-size: 24px;
+}
+
+QPushButton:hover {
+    border-color: #666;            /* 悬停时边框变深 */
+    background-color: #eeeeee;     /* 悬停时背景变浅 */
+}</string>
+   </property>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>0</y>
+      <width>20</width>
+      <height>601</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Orientation::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_quit">
+    <property name="geometry">
+     <rect>
+      <x>654</x>
+      <y>522</y>
+      <width>120</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LayoutDirection::RightToLeft</enum>
+    </property>
+    <property name="text">
+     <string>退出</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_take_back">
+    <property name="geometry">
+     <rect>
+      <x>653</x>
+      <y>214</y>
+      <width>120</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LayoutDirection::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string>悔棋</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_request_draw">
+    <property name="geometry">
+     <rect>
+      <x>653</x>
+      <y>295</y>
+      <width>120</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LayoutDirection::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string>求和</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_give_up">
+    <property name="geometry">
+     <rect>
+      <x>653</x>
+      <y>372</y>
+      <width>120</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LayoutDirection::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string>认输</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_restart">
+    <property name="geometry">
+     <rect>
+      <x>653</x>
+      <y>450</y>
+      <width>120</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LayoutDirection::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string>重新开始</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_currentTurn">
+    <property name="geometry">
+     <rect>
+      <x>661</x>
+      <y>20</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>当前回合</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_player">
+    <property name="geometry">
+     <rect>
+      <x>646</x>
+      <y>96</y>
+      <width>141</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Black</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

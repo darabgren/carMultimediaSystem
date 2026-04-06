@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PhotoWindow</class>
+ <widget class="QMainWindow" name="PhotoWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1000</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>车载多媒体-图片</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">#centralwidget{
+	background-color: qlineargradient(
+    spread:pad, 
+    x1:0, y1:0, x2:0, y2:1,  /* 垂直渐变方向 */
+    stop:0 #789ABD,           /* 起始颜色（浅蓝色） */
+    stop:1 #E1B698             /* 结束颜色（深灰色） */
+);
+}
+
+QListWidget{
+	background-color: transparent; /* 背景透明 */
+    border: none; /* 移除边框 */
+	font-size: 16px;
+	border: 1px solid #555; /* 仅保留底部边框 */
+}
+QToolButton {
+    background-color: transparent; /* 背景透明 */
+    border: none; /* 移除边框 */
+	font-size: 16px;
+}
+QPushButton {
+    background-color: transparent; /* 背景透明 */
+    border: none; /* 移除边框 */
+	font-size: 16px;
+}
+#btn_pre{
+	qproperty-icon: url(:/images/photo/btn_pre.png);
+}
+#btn_next{
+	qproperty-icon: url(:/images/photo/btn_next.png);
+}
+#btn_enlarge{
+	qproperty-icon: url(:/images/photo/btn_enlarge.png);
+}
+#btn_shrink{
+	qproperty-icon: url(:/images/photo/btn_shrink.png);
+}
+#btn_left{
+	qproperty-icon: url(:/images/photo/rotate_left.png);
+}
+#btn_right{
+	qproperty-icon: url(:/images/photo/rotate_right.png);
+}
+#btn_del{
+	qproperty-icon: url(:/images/photo/del.png);
+}
+/*退出样式*/
+#btn_quit{
+	border-image: url(:/images/photo/btn_quit_normal.png);
+}
+#btn_quit:hover{
+	border-image: url(:/images/photo/btn_quit_hover.png);
+}
+</string>
+   </property>
+   <widget class="QToolButton" name="btn_files">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>37</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>文件</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="list_files">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>251</width>
+      <height>421</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_shrink">
+    <property name="geometry">
+     <rect>
+      <x>492</x>
+      <y>540</y>
+      <width>93</width>
+      <height>53</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LayoutDirection::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>缩小</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/images/shrink.png</normaloff>:/images/shrink.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_left">
+    <property name="geometry">
+     <rect>
+      <x>621</x>
+      <y>540</y>
+      <width>93</width>
+      <height>53</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="text">
+     <string>左旋</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/images/rotate_left.png</normaloff>:/images/rotate_left.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_enlarge">
+    <property name="geometry">
+     <rect>
+      <x>363</x>
+      <y>540</y>
+      <width>93</width>
+      <height>53</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>放大</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/images/enlarge.png</normaloff>:/images/enlarge.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_pre">
+    <property name="geometry">
+     <rect>
+      <x>107</x>
+      <y>540</y>
+      <width>93</width>
+      <height>53</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>上一张</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/images/pre.png</normaloff>:/images/pre.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>35</width>
+      <height>35</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_next">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>234</x>
+      <y>540</y>
+      <width>93</width>
+      <height>53</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LayoutDirection::RightToLeft</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>下一张</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/images/next.png</normaloff>:/images/next.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>35</width>
+      <height>35</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_right">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>540</y>
+      <width>93</width>
+      <height>53</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LayoutDirection::RightToLeft</enum>
+    </property>
+    <property name="text">
+     <string>右旋</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/images/rotate_right.png</normaloff>:/images/rotate_right.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_img">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>70</y>
+      <width>641</width>
+      <height>421</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_quit">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>30</y>
+      <width>35</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_del">
+    <property name="geometry">
+     <rect>
+      <x>865</x>
+      <y>540</y>
+      <width>93</width>
+      <height>53</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>删除</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

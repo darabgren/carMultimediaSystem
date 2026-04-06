@@ -1,0 +1,63 @@
+[
+	{
+		"id":1,
+		"name":"山楂树之恋-程佳佳.mp3",
+		"path":"http://localhost/music/山楂树之恋-程佳佳.mp3",
+		"lrc_path":"http://localhost/music/山楂树之恋-程佳佳.lrc",
+		"cover":""
+	},{
+		"id":2,
+		"name":"跳楼机 (女版)-刘大拿.mp3",
+		"path":"http://localhost/music/跳楼机 (女版)-刘大拿.mp3",
+		"lrc_path":"http://localhost/music/跳楼机 (女版)-刘大拿.lrc",
+		"cover":""
+	},{
+		"id":3,
+		"name":"唯一-G.E.M.邓紫棋.mp3",
+		"path":"http://localhost/music/唯一-G.E.M.邓紫棋.mp3",
+		"lrc_path":"http://localhost/music/唯一-G.E.M.邓紫棋.lrc",
+		"cover":""
+	},{
+		"id":4,
+		"name":"我怀念的-孙燕姿.mp3",
+		"path":"http://localhost/music/我怀念的-孙燕姿.mp3",
+		"lrc_path":"http://localhost/music/我怀念的-孙燕姿.lrc",
+		"cover":""
+	},{
+		"id":5,
+		"name":"下一个天亮-郭静.mp3",
+		"path":"http://localhost/music/下一个天亮-郭静.mp3",
+		"lrc_path":"http://localhost/music/下一个天亮-郭静.lrc",
+		"cover":""
+	},{
+		"id":6,
+		"name":"有些-yihuik苡慧.mp3",
+		"path":"http://localhost/music/有些-yihuik苡慧.mp3",
+		"lrc_path":"http://localhost/music/有些-yihuik苡慧.lrc",
+		"cover":""
+	},{
+		"id":7,
+		"name":"于是-G.E.M.邓紫棋.mp3",
+		"path":"http://localhost/music/于是-G.E.M.邓紫棋.mp3",
+		"lrc_path":"http://localhost/music/于是-G.E.M.邓紫棋.lrc",
+		"cover":""
+	},{
+		"id":8,
+		"name":"青花瓷-周杰伦.mp3",
+		"path":"http://localhost/music/青花瓷-周杰伦.mp3",
+		"lrc_path":"http://localhost/music/青花瓷-周杰伦.lrc",
+		"cover":""
+	},{
+		"id":9,
+		"name":"晴天-周杰伦.mp3",
+		"path":"http://localhost/music/晴天-周杰伦.mp3",
+		"lrc_path":"http://localhost/music/晴天-周杰伦.lrc",
+		"cover":""
+	},{
+		"id":10,
+		"name":"刚刚好-薛之谦.mp3",
+		"path":"http://localhost/music/刚刚好-薛之谦.mp3",
+		"lrc_path":"http://localhost/music/刚刚好-薛之谦.lrc",
+		"cover":""
+	}
+]
